@@ -588,6 +588,16 @@
          return false;
     });
     
+        /* button  #btfechavoltar */
+    $(document).on("click", "#btfechavoltar", function(evt)
+    {
+         /*global activate_page */
+        uib_sb.toggle_sidebar($("#menu")); 
+        activate_page("#pg-services"); 
+        
+         return false;
+    });
+    
     }
  document.addEventListener("app.Ready", register_event_handlers, false);
 })();
