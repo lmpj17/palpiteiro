@@ -41,7 +41,7 @@ function listaDrivers()
  
             {
 //             return 'http://www.be1worldservices.com/maxima/';
-             return 'http://palpiteiro.lmcomercial.com.br/webservice/';
+             return 'http://fortune.lmcomercial.com.br/webservice/';
          
     } 	
 
@@ -432,7 +432,7 @@ function GenerateCombinations(totalElements, elementCount) {
     }    
 
     console.debug(res.length + ' combinações encontradas.');
-    $("#qttotalapostas").html("<center>"+ res.length +"</center>");
+    $("#qttotalapostas").html("<center>Quantidade de apostas: "+ res.length +"</center><p><center>Quantidade de Números: "+ totalElements +"</center>");
 
     return res;
 }
@@ -495,7 +495,7 @@ console.log ('fx1:'+fx1+' fx3:'+ fx3 +' fixos:'+ fixos);
               }
         }
 
-        $("#listapostas").append('<center><b><h3>'+ fixos + ' ' +arItem+'</h3></center>');
+        $("#listapostas").append('<center><h3>'+ fixos + ' ' +arItem + ' #</h3></center>');
 
         res.push(arItem);
         console.log(arItem);
@@ -508,8 +508,15 @@ console.log ('fx1:'+fx1+' fx3:'+ fx3 +' fixos:'+ fixos);
 
 function gerarApostas() {
 
-   var qtNumJogo = parseInt(document.getElementById('qtnumjogo').value);
    var qtNumAposta = parseInt(document.getElementById('qtnumaposta').value);
+   var wqtNumAposta = document.getElementById('qtnumaposta').value;
+
+
+   if (wqtNumAposta == ''){
+    alert ('Qdte números por aposta deve ser preenchido!');
+    return false;
+   }
+
    var fx1 = document.getElementById('fx1').value;
    var fx2 = document.getElementById('fx2').value;
    var fx3 = document.getElementById('fx3').value;
@@ -521,19 +528,24 @@ function gerarApostas() {
 
 console.log ('fx1:'+fx1+' fx3:'+ fx3);
    if ( fx1 != '') {
-      fixos[p++] = fx1;
+      fixos += fx1 + ' ';
+      p++;
    }
    if ( fx2 != '') {
-      fixos[p++] = fx2;
+      fixos+=  fx2 + ' ';
+      p++;
    }
    if ( fx3 != '') {
-      fixos[p++] = fx3;
+      fixos+= fx3 + ' ';
+      p++;
    }
    if ( fx4 != '') {
-      fixos[p++] = fx4;
+      fixos+= fx4 + ' ';
+      p++;
    }
    if ( fx5 != '') {
-      fixos[p++] = fx5;
+      fixos+= fx5 + ' ';
+      p++;
    }
    qtfixos = --p;
 
@@ -541,17 +553,25 @@ console.log ('fx1:'+fx1+' fx3:'+ fx3);
         if (ncheck[i].checked == true){ 
             // CheckBox Marcado... Faça alguma coisa...
             numeros[x++] = (i+1);
-            console.log('checked:'+ (i+1));
 
         }
     }
 
+    if (qtNumAposta > i){
+        alert ('Quantidade de insuficiente de Números selecionados!');
+        return false;
+
+    }
+
     var qtNrCombinar = qtNumAposta - qtfixos;
-    console.log('Numeros:'+numeros  + ' qtNumAposta:' + qtNumAposta + 'qtfixos:' + qtfixos);
+
+
+//    console.log('Numeros:'+numeros  + ' qtNumAposta:' + qtNumAposta + 'qtfixos:' + qtfixos);
 
    // collection  [1,2,3,4,5,6,...]
     $("#listapostas").empty();
     CombineElements(numeros, qtNrCombinar);
+    $("#numselecionados").html("Números Selecionados: "+ '( ' + fixos + ' ) ' + numeros);
     activate_page("#numeros-gerados");
 
 
@@ -1161,7 +1181,7 @@ function sendEmail()
                 var uid = document.getElementById('iduser').value; 
                 var subject = document.getElementById('subject').value; 
                 var email = document.getElementById('emailtext').value; 
-                console.log('sendEmail'+uid+'text:'+email);
+                console.log('sendEmail'+uid+'text:'+ email);
                 $.ajax({
                     type: "GET",
                     url: getURL()+"send-emailcontact.php",
@@ -1183,3 +1203,39 @@ function sendEmail()
                 });
          
     } 
+
+function sendEmailApostas()         
+            
+
+            {
+                var subject = 'FORTUNE - Apostas Geradas'; 
+                var uid = document.getElementById('iduser').value; 
+                var email = document.getElementById('emailapostas').value; 
+                var apostas = $('#listapostas').text(); 
+                console.log('sendEmail acct:'+ email);
+                console.log('Email text:'+ apostas);
+                $("#message-email").empty();
+                $.ajax({
+                    type: "GET",
+                    url: getURL()+"send-emailapostas.php",
+                    timeout: 8000,
+                    data: {"uid": uid,"subject": subject,"email": email, "apostas" : apostas},
+                    contentType: "application/json; charset=utf-8",
+                    success: function (result, jqXHR) {
+                    console.log('resultado email: '+result);
+                        var feed = JSON.parse(result);
+                        $("#message-email").html("<center>Suas apostas foram enviadas, BOA SORTE!.</center>");
+
+//            listServices();
+//            activate_page("#pg-services");
+//            uib_sb.toggle_sidebar($("#menu"));
+         
+                    },
+                    error: function (jqXHR, status) {
+                        $("#message-email").html("<center>Problema em nosso servidor, tente novamente....  "+status+"</center>");
+                    },
+                });
+         
+    } 
+
+

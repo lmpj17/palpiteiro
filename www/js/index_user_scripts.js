@@ -598,6 +598,14 @@
          return false;
     });
     
+        /* button  #btenviarapostas */
+    $(document).on("click", "#btenviarapostas", function(evt)
+    {
+        /* your code goes here */ 
+        sendEmailApostas();
+         return false;
+    });
+    
     }
  document.addEventListener("app.Ready", register_event_handlers, false);
 })();

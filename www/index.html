@@ -122,15 +122,15 @@
                                     <div class="widget-container left-receptacle"></div>
                                     <div class="widget-container right-receptacle"></div>
                                     <div class="text-container">
-                                        <h3>Olá, seja bem vindo ao LMSORTE, aplicativo "PALPITEIRO",&nbsp;gerador de números de loteria que poderá torná-lo um MILIONÁRIO!</h3>
+                                        <h3>Olá, seja bem vindo ao FORTUNE !! Aplicativo "PALPITEIRO", gerador de números de loteria que poderá torná-lo um MILIONÁRIO!</h3>
 
-                                        <h3>Com este aplicativo você poderá visualizar os números que mais foram sorteados, e&nbsp;também, poderá solicitar a geração de números aleatórios.</h3>
+                                        <p>Com este aplicativo você poderá visualizar os números que mais foram sorteados, e também, poderá solicitar a geração de números aleatórios.</p>
 
-                                        <h3>NOVAS VERSÕES ESTÃO A CAMINHO...CADASTRE-SE PARA RECEBER INFORMAÇÕES.</h3>
+                                        <p>Use também o simulador de fechamento, disponível no menu, onde você pode escolher os números e receber por email todas as apostas possíveis geradas com todos eles.</p>
 
-                                        <h3>OS PRÓXIMOS NÚMEROS PREMIADOS&nbsp;PODEM ESTAR AQUI!</h3>
+                                        <p>NOVAS VERSÕES ESTÃO A CAMINHO...CADASTRE-SE PARA RECEBER INFORMAÇÕES.</p>
 
-                                        <p>&nbsp;</p>
+                                        <h3>OS PRÓXIMOS NÚMEROS PREMIADOS PODEM ESTAR AQUI!</h3>
 
                                         <p>&nbsp;</p>
 
@@ -950,18 +950,12 @@
         <div class="upage hidden" id="pg-fechamento">
             <div class="upage-outer">
                 <div class="upage-content ac0 content-area vertical-col left" id="page_21_57">
-                    <div class="table-thing widget uib_w_223 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
-                        <label class="narrow-control label-top-left" for="qtnumjogo">Qtde de Números do Jogo :</label>
-                        <input class="wide-control form-control default" type="text" id="qtnumjogo">
-                    </div>
+
                     <div class="table-thing widget uib_w_236 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
                         <label class="narrow-control label-top-left" for="qtnumaposta">Qtde números por aposta:</label>
                         <input class="wide-control form-control default" type="text" id="qtnumaposta">
                     </div>
-                    <div class="table-thing widget uib_w_237 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
-                        <label class="narrow-control label-top-left" for="qtmaxapostas">Qtde Máxima de apostas</label>
-                        <input class="wide-control form-control default" type="text" id="qtmaxapostas">
-                    </div>
+
                     <div class="tarea widget uib_w_235 d-margins" data-uib="media/text" data-ver="0" name="uib_w_235">
                         <div class="widget-container left-receptacle"></div>
                         <div class="widget-container right-receptacle"></div>
@@ -1215,13 +1209,22 @@
                         </div>
                     </div>
                     <div class="card_grid widget uib_w_244 wrapping-col d-margins flex-basis-244" data-uib="layout/card_grid" data-ver="0"></div>
+
+                    <div class="grid grid-pad urow uib_row_13 row-height-13" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_13 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+                                <span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
                 </div>
                 <div class="uib-footer uib-footer-fixed footer-bg container-group inner-element uib_w_262" data-uib="layout/footer" data-ver="0">
                     <h2></h2>
                     <div class="widget-container wrapping-col single-centered">
                         <div class="btn-group uib-bs-flex widget uib_w_263 d-margins" data-uib="twitter%20bootstrap/button_group" data-ver="1">
                             <button class="btn widget uib_w_264 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btfechavoltar"><i class="el el-arrow-left button-icon-left" data-position="left"></i>Voltar</button>
-                            <button class="btn widget uib_w_266 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btgerarapostas"><i class="fa fa-sun-o button-icon-left" data-position="left"></i>Gerar Apostas</button>
+                            <button class="btn widget uib_w_266 btn-success" data-uib="twitter%20bootstrap/button" data-ver="1" id="btgerarapostas"><i class="fa fa-sun-o button-icon-left" data-position="left"></i>Gerar Apostas</button>
                         </div>
                     </div>
                     <div class="widget-container content-area horiz-area wrapping-col left"></div>
@@ -1233,6 +1236,13 @@
         <div class="upage hidden" id="numeros-gerados">
             <div class="upage-outer">
                 <div class="upage-content ac0 content-area vertical-col left" id="page_33_43">
+                    <div class="tarea widget uib_w_302 d-margins" data-uib="media/text" data-ver="0" name="uib_w_302" id="message-email">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container">
+                            <p>message-email</p>
+                        </div>
+                    </div>
                     <div class="tarea widget uib_w_273 d-margins" data-uib="media/text" data-ver="0" name="uib_w_273">
                         <div class="widget-container left-receptacle"></div>
                         <div class="widget-container right-receptacle"></div>
@@ -1245,6 +1255,17 @@
                         <div class="text-container">
                             <h3><strong>qttotalapostas</strong></h3>
                         </div>
+                    </div>
+                    <div class="tarea widget uib_w_300 d-margins" data-uib="media/text" data-ver="0" name="uib_w_300" id="numselecionados">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container">
+                            <p>numselecionados</p>
+                        </div>
+                    </div>
+                    <div class="table-thing widget uib_w_301 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-top-left" for="emailapostas">E-mail para enviar apostas geradas;</label>
+                        <input class="wide-control form-control default" type="text" id="emailapostas">
                     </div>
                     <div class="tarea widget uib_w_274 d-margins" data-uib="media/text" data-ver="0" name="uib_w_274">
                         <div class="widget-container left-receptacle"></div>
@@ -1265,7 +1286,7 @@
                     <div class="widget-container wrapping-col single-centered">
                         <div class="btn-group uib-bs-flex widget uib_w_268 d-margins" data-uib="twitter%20bootstrap/button_group" data-ver="1">
                             <button class="btn widget uib_w_269 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="bttotapostasvoltar"><i class="el el-arrow-left button-icon-left" data-position="left"></i>Voltar</button>
-                            <button class="btn widget uib_w_271 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1"><i class="fa fa-envelope button-icon-left" data-position="left"></i>Enviar</button>
+                            <button class="btn widget uib_w_271 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btenviarapostas"><i class="fa fa-envelope button-icon-left" data-position="left"></i>Enviar</button>
                         </div>
                     </div>
                     <div class="widget-container content-area horiz-area wrapping-col left"></div>
